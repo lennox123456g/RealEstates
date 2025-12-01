@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIRST UI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        .nav-hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body  class=" min-h-screen bg-gray-200 xl:flex-col"><!--whole app-->
+    <header class="bg-gray-900  sm:flex  sm:items-center sm:justify-between xl:flex-shrink-0 xl:bg-white ">
+        <div class="flex justify-between items-center px-4 py-3 xl:w-72 xl:bg-gray-900">
+            <div class="text-gray-600 flex items-center xl:justify-center">
+                <svg class="h-4 w-5 fill-current text-teal-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                    <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
+                  </svg>
+                <svg class="h-4 w-5 fill-current text-teal-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
+                </svg>
+                <span class="ml-2 text-xl font-bold text-white">BOOKU</span>
+                <svg class=" ml-2 h-4 w-5 fill-current text-teal-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
+                </svg>
+                <svg class="h-4 w-5 fill-current text-teal-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
+                </svg>
+            </div>
+            <div class="flex">
+                <button  id="toggleButton" type="button" class=" px-2  text-gray-500 hover:text-white focus:outline focus:text-white rounded sm:hidden ">
+                    <svg class="h-6 w-6 fill-current " xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                      </svg>
+                </button>
+            </div>
+        </div>
+        <nav  class="sm:flex sm:items-centersm:px-4 xl:flex-1 xl:justify-between" id="mobileMenu" class="nav-hidden">
+            <div>
+                <div class="relative max-w-xs w-full  "><!--copied here the search for xl -->
+                <div class="absolute inset-y-0 left-0 flex items-center pl-3">
+                    <svg class="h-6 w-6 fill-current text-gray-500 " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                    </svg>
+                </div>
+                <input class="sm:block sm:w-full bg-gray-900 focus:outline-none border border-transparent border-gray-300 focus:bg-white focus:text-gray-900 text-white rounded-lg pl-12 pr-4 py-2" placeholder="Search by keywords"> 
+            </div>
+            <div class="px-2 py-3 pb-5 border-b border-gray-800 sm:flex sm:border-b-0 sm:py-0   "><!--for the links -->
+                <a href="" class="  block px-3 py-1 rounded font-semibold text-white sm:text-sm  sm:px-2 sm:ml-2  xl:text-gray-900">List your property</a>
+                <a href="" class=" mt-1 px-3 py-1 rounded sm:mt-0  block font-semibold text-white sm:text-sm sm:px-2 sm:ml-2 xl:text-gray-900">Trips </a>
+                <a href="" class=" mt-1  px-3 py-1 rounded  sm:mt-0 block font-semibold text-white sm:text-sm sm:px-2 sm:ml-2 xl:text-gray-900"> Messages</a>
+            </div>
+            <div class=" relative px-5 py-3  sm:py-0  sm:px-0 sm:ml-4 sm:pr-2">
+                <div class="flex items-center object-cover ">
+                    <img class=" sm:h-8 sm:w-8  h-10 w-10 rounded-full border-2 border-gray-600 xl:border-gray-300" src="mans.jpg" alt="">
+                <span class="ml-4 sm:hidden font-semibold text-gray-200">Lennox Lewis</span>
+                </div>
+                <button id="toggleButton3" type="button3" class="flex items-center hidden sm:block sm:focus:outline-none sm:focus:border-white sm:overflow-hidden">
+                    <img class=" sm:h-8 sm:w-8  h-8 w-8 object-cover rounded-full border-2 border-gray-600 xl:border-gray-300" src="mans.jpg" alt="">
+                <span class="ml-4 sm:hidden font-semibold text-gray-200">Lennox Lewis</span>
+                </button>
+                <div class="mt-5 sm:bg-white sm:rounded-lg sm:absolute sm:right-0 sm:w-48 sm:mt-3  sm:py-2 sm:shadow-xl">
+                    <a class="block text-gray-400 hover:text-white  sm:text-gray-900  sm:px-4 sm:px-2 sm:hover:bg-indigo-500" href="">Account settings</a>
+                    <a class="mt-3 block text-gray-400 hover:text-white sm:text-gray-900 sm:px-4 sm:px-2 sm:hover:bg-indigo-500" href=" ">Support</a>
+                    <a  class=" mt-3 block text-gray-400 hover:text-white sm:text-gray-900 sm:px-4 sm:px-2 sm:hover:bg-indigo-500" href="">Sign Out</a>
+                </div>
+            </div>
+            </div>
+        </nav>    
+    </header>
+    
+
+   <div class=" xl:flex xl:flex-1 xl:overflow-y-hidden"> <!--search filter and main in a div flex ceates the two sections here-->
+    <section class="bg-gray-800 xl:w-72">
+        <div class="flex justify-between px-4 py-3 xl:hidden"><!--top section-->
+            <div class="relative max-w-xs w-full"><!--max width and w-full expand -->
+                <div class="absolute inset-y-0 left-0 flex items-center pl-3">
+                    <svg class="h-6 w-6 fill-current text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                    </svg>
+                </div>
+                <input class="sm:block sm:w-full bg-gray-900 focus:outline-none focus:bg-white focus:text-gray-900 text-white rounded-lg pl-12 pr-4 py-2" placeholder="Search by keywords"> 
+            </div>
+            <button id="toggleButton1" type="button1" class="ml-4 inline-flex bg-gray-700 rounded-lg hover:bg-gray-600 focus:outline-none focus:shadow-outline shadow pl-3 pr-4 pt-2"> 
+                <svg class="h-6 w-6 fill-current text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path fill-rule="evenodd" d="M3 6.75A.75.75 0 0 1 3.75 6h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 6.75ZM3 12a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 12Zm8.25 5.25a.75.75 0 0 1 .75-.75h8.25a.75.75 0 0 1 0 1.5H12a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd" />
+                </svg>
+                <span class="ml-1 text-white font-medium">Filters</span>
+            </button>
+        </div>
+        <div id="mobileMenu1" class="nav-hidden"><!--bottom section-->
+            <div class="lg:flex xl:block xl:overflow-y-auto">
+                <div class="px-4 py-4 border-t border-gray-900 sm:flex sm:-mx-2 lg:w-1/3 border-t-0"><!--top section-->
+                    <div class="flex -mx-2 sm:w-1/2">
+                        <label class="block w-1/2 px-2 lg:w-1/2 xl:w-full ">
+                            <span class="text-sm font-semibold text-gray-500">Bedrooms</span>
+                            <select class="mt-1 form-select block w-full shadow bg-gray-700 text-white rounded px-3 py-2">
+                                <option value="">4</option>
+                            </select>
+                        </label>
+                        <label class="block w-1/2 px-2 lg:w-1/2">
+                            <span class="text-sm font-semibold text-gray-500  xl:w-full">Bathrooms</span>
+                            <select class="mt-1 form-select block w-full shadow bg-gray-700 text-white rounded px-3 py-2">
+                                <option value="">2</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="mt-6 sm:mx-2 sm:mt-0 sm:px-2 sm:w-1/2 lg:mt-4 lg:wfull xl:w-full">
+                        <label>
+                            <span class="text-sm font-semibold text-gray-500">Price Range</span>
+                            <select class="mt-1 form-select block w-full shadow bg-gray-700 text-white rounded px-3 py-2">
+                                <option value="">Up to $2,000/wk</option>
+                            </select>
+                        </label>
+                    </div>  
+                </div>
+                <div class="px-4 py-4 border-t border-gray-900 lg:w-1/3 lg:border-l">
+                    <span class="text-sm font-semibold text-gray-500">Property Type</span>
+                    <div class="sm:flex sm:flex-wrap sm:space-x-0 sm:-mx-2 lg:block lg:mx-0">
+                        <label class="mt-3 flex items-center sm:w-1/4 sm:px-4 lg:w-full lg:px-0 xl:w-full">
+                            <input class="form-checkbox" type="radio" name="Property Type" value="House">
+                            <span class="ml-2 text-white">House</span>
+                        </label>
+                        <label class="mt-3 flex items-center sm:w-1/4 sm:px-4 lg:w-full lg:px-0 xl:w-full">
+                            <input class="form-checkbox" type="radio" name="Property Type" value="Appartment">
+                            <span class="ml-2 text-white">Loft</span> 
+                        </label>
+                        <label class="mt-3 flex items-center sm:w-1/4 sm:px-4 lg:w-full lg:px-0 xl:w-full">
+                            <input class="form-checkbox" type="radio" name="Property Type" value="Loft">
+                            <span class="ml-2 text-white">Appartment</span>
+                        </label>
+                        <label class="mt-3 flex items-center sm:w-1/4 sm:px-4 lg:w-full lg:px-0 xl:w-full">
+                            <input class="form-checkbox" type="radio" name="Property Type" value="TownHouse">
+                            <span class="ml-2 text-white">TownHouse</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="px-4 py-4 border-t border-gray-900 lg:w-1/3 lg:border-l"><!--checkboxes-->
+                    <span class="text-sm font-semibold text-gray-500">Amenities</span>
+                    <div class="sm:flex sm:flex-wrap sm:-mx-2">
+                        <label class="mt-3 flex items-center sm:w-1/4 sm:px-2  lg:w-1/2 xl:w-full">
+                            <input type="checkbox" name="Balcony">
+                            <span class="ml-2 text-white">Balcony</span>
+                        </label>
+                        <label class="mt-3 flex items-center sm:w-1/4 sm:px-2 lg:w-1/2 xl:w-full">
+                            <input type="checkbox" name="Air Conditioning">
+                            <span class="ml-2 text-white">Parking</span>
+                        </label>
+                        <label class="mt-3 flex items-center sm:w-1/4 sm:px-2 lg:w-1/2 xl:w-full">
+                            <input type="checkbox" name="Pool">
+                            <span class="ml-2 text-white">Pool</span>
+                        </label>
+                        <label class="mt-3 flex items-center sm:w-1/4 sm:px-2 lg:w-1/2 xl:w-full">
+                            <input type="checkbox" name="Beach">
+                            <span class="ml-2 text-white">Beach</span>
+                        </label>
+                        <label class="mt-3 flex items-center sm:w-1/4 sm:px-2 lg:w-1/2 xl:w-full">
+                            <input type="checkbox" name="Kid Friendly">
+                            <span class="ml-2 text-white">Kid Friendly</span>
+                        </label>
+                        <label class="mt-3 flex items-center sm:w-1/4 sm:px-2 lg:w-full xl:w-full">
+                            <input type="checkbox" name="Parking">
+                            <span class="ml-2 text-white">Air Conditioning</span>
+                        </label> 
+                    </div>
+                </div>
+            </div>
+            <div class="px-4 py-4 bg-gray-900"><!--submitting button-->
+                <button class="rounded bg-blue-900 block w-full text-white sm:w-auto sm:inline-block hover:bg-indigo-400 font-semibold px-4 py-2 xl:block xl:w-full">Update Results</button>
+            </div>
+        </div>
+    </section>
+    <main class=" py-6 xl:flex-1 xl:overflow-x-hidden"> 
+        <div class="px-4 ">
+            <h3 class="text-gray-900 text-xl font-bold"> Jinja City</h3>
+            <p class="text-gray-600 ">Live Like the stars in these luxurios Bugembe  Estates. You must purchase by the way</p>
+        </div>
+        <div class="mt-6 sm:flex sm:overflow-x-auto sm:pb-8"><!--main div for listings-->
+            <div id="app">
+                <div class="sm:flex sm:space-x-4 sm:no-wrap">
+                    <div v-for="i in 8" :key="i" class="sm:max-w-xs sm:w-64 sm:flex-shrink-0 mb-6 sm:mb-0">
+                        <div class="relative pb-5/6"><!--image section-->
+                            <img class="rounded-lg shadow-md w-full h-64 object-cover" src="house1.jpg" alt="Property image">
+                        </div>
+                        <div class="relative px-4 -mt-16">
+                            <div class="bg-white rounded-lg px-4 py-4 shadow-lg"><!--card section-->
+                                <div class="flex items-center">
+                                    <span class="inline-block px-2 py-1 bg-teal-200 text-teal-800 leading-none font-semibold rounded-full uppercase tracking-wide text-xs">Plus</span>
+                                    <div class="ml-2 text-xs text-gray-600 font-semibold uppercase tracking-wide">
+                                        3 beds &bull; 2 baths
+                                    </div>
+                                </div>
+                                <h4 class="mt-1 text-gray-900 font-semibold text-lg">Modern Home in city center</h4>
+                                <div class="mt-1">
+                                    <span class="text-gray-900">$1,400</span>
+                                    <span class="ml-1 text-sm text-gray-600">/wk</span>
+                                </div>
+                                <div class="mt-2 text-gray-600 flex items-center">
+                                    <svg class="h-4 w-4 fill-current text-teal-500" viewBox="0 0 24 24">
+                                        <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
+                                    </svg>
+                                    <svg class="h-4 w-4 fill-current text-teal-500" viewBox="0 0 24 24">
+                                        <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
+                                    </svg>
+                                    <svg class="h-4 w-4 fill-current text-teal-500" viewBox="0 0 24 24">
+                                        <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
+                                    </svg>
+                                    <svg class="h-4 w-4 fill-current text-teal-500" viewBox="0 0 24 24">
+                                        <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
+                                    </svg>
+                                    <svg class="h-4 w-4 fill-current text-teal-500" viewBox="0 0 24 24">
+                                        <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="ml-2">34 reviews</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+        </div>
+    </main>
+
+   </div>
+    <script>
+        // Get references to the toggle button and mobile menu
+        const toggleButton = document.getElementById('toggleButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        // Add click event listener to the toggle button
+        toggleButton.addEventListener('click', function() {
+            // Toggle the nav-hidden class to show/hide the menu
+            mobileMenu.classList.toggle('nav-hidden');
+            
+            // Optional: Add transition animation classes if you want
+            // For example: mobileMenu.classList.toggle('transition-all');
+        });
+         // Get references to the toggle button and mobile menu
+         
+        const toggleButton1 = document.getElementById('toggleButton1');
+        const mobileMenu1 = document.getElementById('mobileMenu1'); 
+        
+       
+        // Add click event listener to the filters toggle button
+        toggleButton1.addEventListener('click', function() {
+            // Toggle the nav-hidden class to show/hide the filters menu
+            mobileMenu1.classList.toggle('nav-hidden');
+        });
+
+         // Initialize Vue app
+        const app = Vue.createApp({
+            data() {
+                return {
+                    // You can add data for your property listings here if needed
+                }
+            }
+        }).mount('#app'); // Mount to the container that will hold the listings
+
+        
+    </script>
+    
+</body>
+</html>
+
+<!-- line 50
+  dont take flexes
+ getting more copies in Vue like v-for = i in 4
+ When your absolute-positioned element has width issues
+  in Tailwind CSS, this is typically because absolute elements lose their 
+ default block-level width behavior (they no longer expand to fill their container).
+ its why i have wfull there and pr-12
+ 
+ fisf the image doesnt cover teh place well esp the huse ,,use aspect ratio in a div give the div relative and the image absolute ,,use hfull and inset 0
+ get more research about vfor
+ for i in 4 in vue
+ Property Type Section:
+
+Added sm:flex-wrap to allow the items to wrap properly on small screens
+Added sm:space-x-0 to remove any horizontal spacing that might cause layout issues
+Added sm:-mx-2 for negative margin to align with the container's padding
+Added sm:w-1/4 to each label to take up exactly one quarter of the width
+Added sm:px-4 to each label for proper spacing between elements
+
+Amenities Section:
+
+Fixed the layout structure by moving the sm:w-1/4 sm:px-2 classes from the span to the label elements
+Made sure each amenity item takes up exactly 1/4 of the container width with sm:w-1/4
+Added consistent padding with sm:px-2 to ensure proper spacing
+Made sure the text is inside the label, not overlapping other elements-->
+ 
